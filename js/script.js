@@ -1,21 +1,9 @@
-// reset button
-document.getElementById("resetBtn").addEventListener("click", function() {
+// calculate and validate
+function calculatebmi(){
     // form input
-    document.getElementById('input[name="gender"]:checked').checked = false;
-    document.getElementById("weight").value = "";
-    document.getElementById("age").value = "";
-    document.getElementById("height").value = "";
-
-    // results 
-    document.getElementById("resultText").innerHTML = "Masukkan data untuk menghitung BMI Anda.";
-});
-
-// calculate button
-document.getElementById("calculateBmi").addEventListener("click", function() {
-    // form input
-    var weight = parseFloat(document.getElementById("weight").value);
-    var age = parseInt(document.getElementById("age").value);
-    var height = parseFloat(document.getElementById("height").value);
+    let weight = parseFloat(document.getElementById("weight").value);
+    let age = parseInt(document.getElementById("age").value);
+    let height = parseFloat(document.getElementById("height").value);
     
     // validation
     if (isNaN(weight) || isNaN(age) || isNaN(height)) {
@@ -24,17 +12,17 @@ document.getElementById("calculateBmi").addEventListener("click", function() {
     }
     
     // convert height from cm to m
-    var heightMeters = height / 100
-    
+    const heightMeters = height / 100
+
     // BMI calculation
-    var bmi = weight / (heightMeters * heightMeters);
+    const bmi = weight / (heightMeters * heightMeters);
 
     // results BMI
-    var resultBmi = Math.round(bmi*10) / 10;
+    const resultBmi = Math.round(bmi*10) / 10;
     
     // BMI classification
-    var classification;
-    var conlusion;
+    let classification;
+    let conlusion;
     if (bmi < 18.5) {
         classification = "Kekurangan Berat Badan";
         conlusion = "Anda memiliki berat badan kurang";
@@ -50,10 +38,22 @@ document.getElementById("calculateBmi").addEventListener("click", function() {
     }
     
     // display results
-    var result = document.getElementById("resultText")
+    let result = document.getElementById("result-text")
     result.innerHTML = `
     <p style="text-align: center;">${classification}</p>
     <h1 style="text-align: center;"> ${resultBmi}</h1>
     <p style="text-align: center;">${conlusion}</p>
     `
-});
+}
+
+// reset button
+function reset() {
+    // form input
+    document.getElementById('input[name="gender"]:checked').checked = false;
+    document.getElementById("weight").value = "";
+    document.getElementById("age").value = "";
+    document.getElementById("height").value = "";
+    
+    // results
+    document.getElementById("result-text").innerHTML = "0";
+}

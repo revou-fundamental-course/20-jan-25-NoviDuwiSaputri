@@ -18,7 +18,7 @@
         <!-- left-card -->
         <div class="left-card">
             <h3>FORM</h3>
-            <form id="bmiForm">
+            <form id="bmi-form">
                 <!-- gender -->
                 <div class="input-group">
                     <label for="weight">Jenis Kelamin:</label>
@@ -51,8 +51,8 @@
                 </div>
 
                 <!-- button -->
-                <button type="button" class="button button-submit" id="calculateBmi">Hitung BMI</button>
-                <button type="reset" class="button button-reset" id="resetBtn">Reset</button>
+                <button type="button" class="button button-submit" id="calculate-bmi" onclick=calculatebmi()>Hitung BMI</button>
+                <button type="reset" class="button button-reset" id="reset-btn">Reset</button>
             </form>
         </div>
         <!-- end left-card -->
@@ -60,7 +60,7 @@
         <!-- right-card -->
         <div class="right-card">
             <h3>HASIL</h3>
-            <p id="resultText">Masukkan data untuk menghitung BMI Anda.</p>
+            <p id="result-text">0</p>
         </div>
         <!-- end right-card -->
     </div>
